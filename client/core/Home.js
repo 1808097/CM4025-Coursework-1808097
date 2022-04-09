@@ -1,12 +1,12 @@
 //import React from 'react'
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import myImg from './../assets/images/myimage.png'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(5)
   },
   title: {
-    padding:`${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme.spacing(2)}px`,
+    padding: `${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme.spacing(2)}px`,
     color: theme.palette.openTitle
   },
   media: {
@@ -27,32 +27,32 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'right',
     backgroundColor: '#ededed',
     borderBottom: '1px solid #d0d0d0',
-    '& a':{
+    '& a': {
       color: '#3f4771'
     }
   }
 }))
 
-export default function Home(){
+export default function Home() {
   const classes = useStyles()
 
   useEffect(() => {
     const abortController = new AbortController()
     const signal = abortController.signal
+  }, [])
 
-
-    return (
-        <Card className={classes.card}>
-          <Typography variant="h6" className={classes.title}>
-            Home Page
-          </Typography>
-          <CardMedia className={classes.media} image={myImg} title="My Image"/>
-          <Typography variant="body2" component="p" className={classes.credit} color="textSecondary">Photo: Chompster</Typography>
-          <CardContent>
-            <Typography variant="body1" component="p">
-              Welcome to Lab 6 home page.
-            </Typography>
-          </CardContent>
-        </Card>
-    )
+  return (
+    <Card className={classes.card}>
+      <Typography variant="h6" className={classes.title}>
+        Home Page
+      </Typography>
+      <CardMedia className={classes.media} image={myImg} title="My Image" />
+      <Typography variant="body2" component="p" className={classes.credit} color="textSecondary">Photo: Chompster</Typography>
+      <CardContent>
+        <Typography variant="body1" component="p">
+          Welcome to Lab 6 home page.
+        </Typography>
+      </CardContent>
+    </Card>
+  )
 }
