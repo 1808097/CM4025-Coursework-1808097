@@ -61,13 +61,14 @@ const requireSignin = expressJwt({
 const hasAuthorization = (req, res, next) => {
   
   console.log("TESTING1")
-  console.log(req.profile.name)
+  console.log(req.profile)
   console.log("TESTING2")
-  console.log(req.auth.name)
+  console.log(req.auth)
   console.log("TESTING3")
   console.log(req.profile._id)
   console.log("TESTING4")
   console.log(req.auth._id)
+  console.log(req.profile._id == req.auth._id)
 
   const authorized = req.profile && req.auth && req.profile._id == req.auth._id
   if (!(authorized)) {
