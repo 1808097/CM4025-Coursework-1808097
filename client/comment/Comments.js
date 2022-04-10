@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Users() {
+export default function Comments() {
   const classes = useStyles()
   const [comments, setComments] = useState([])
 
@@ -37,7 +37,7 @@ export default function Users() {
       if (data && data.error) {
         console.log(data.error)
       } else {
-        setUsers(data)
+        setComments(data)
       }
     })
 
