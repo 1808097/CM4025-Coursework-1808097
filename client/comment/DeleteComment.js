@@ -55,7 +55,7 @@ export default function DeleteComment(props) {
           <Button onClick={handleRequestClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={deleteAccount} color="secondary" autoFocus="autoFocus">
+          <Button onClick={deleteComment} color="secondary" autoFocus="autoFocus">
             Confirm
           </Button>
         </DialogActions>
