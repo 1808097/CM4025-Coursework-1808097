@@ -1,6 +1,11 @@
 import mongoose from 'mongoose'
 
 const CommentSchema = new mongoose.Schema({
+  originId: {
+    type: Objectid,
+    trim: true,
+    required: 'id is required'
+  },
   user: {
     type: String,
     trim: true,

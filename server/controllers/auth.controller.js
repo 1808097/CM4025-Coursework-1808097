@@ -62,7 +62,7 @@ const hasAuthorization = (req, res, next) => {
   
 
   console.log("TESTING3")
-  console.log(req.profile)
+  console.log(req.profile.originId)
   console.log("TESTING4")
   console.log(req.auth)
   console.log("TESTING5")
@@ -70,6 +70,8 @@ const hasAuthorization = (req, res, next) => {
   console.log("TESTING6")
   console.log(req.auth._id)
   console.log(req._id == req.auth._id)
+  console.log(req.originId == req.auth._id)
+
 
   const authorized = req.profile && req.auth && req.profile._id == req.auth._id
   if (!(authorized)) {
