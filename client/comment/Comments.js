@@ -65,12 +65,12 @@ export default function Comments() {
             <ListItemText primary={item.comment} /> {
              auth.isAuthenticated().user && auth.isAuthenticated().user.name == item.user &&
               (<ListItemSecondaryAction>
-                <Link to={"/comment/edit/" + comment._id}>
+                <Link to={"/comment/edit/" + item._id}>
                   <IconButton aria-label="Edit" color="primary">
                     <Edit/>
                   </IconButton>
                 </Link>
-                <DeleteComment commentId={comment._id}/>
+                <DeleteComment commentId={item._id}/>
               </ListItemSecondaryAction>)
             }
           </ListItem>
