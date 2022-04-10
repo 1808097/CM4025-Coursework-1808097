@@ -9,7 +9,6 @@ import ListItemText from '@material-ui/core/ListItemText'
 import Avatar from '@material-ui/core/Avatar'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
-import ArrowForward from '@material-ui/icons/ArrowForward'
 import Person from '@material-ui/icons/Person'
 import { Link } from 'react-router-dom'
 import { list } from './api-comment'
@@ -61,12 +60,17 @@ export default function Comments() {
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary={item.user} />
-            <ListItemText primary={item.comment} />
-            <ListItemSecondaryAction>
-              <IconButton>
-                <ArrowForward />
-              </IconButton>
-            </ListItemSecondaryAction>
+            <ListItemText primary={item.comment} /> {
+             auth.isAuthenticated().user && auth.isAuthenticated().user._id == user._id &&
+              (<ListItemSecondaryAction>
+                <Link to={"/comment/edit/" + comment._id}>
+                  <IconButton aria-label="Edit" color="primary">
+                    <Edit/>
+                  </IconButton>
+                </Link>
+                <DeleteUser commentId={comment._id}/>
+              </ListItemSecondaryAction>)
+            }
           </ListItem>
 
         })
