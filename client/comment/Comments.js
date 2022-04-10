@@ -10,6 +10,7 @@ import Avatar from '@material-ui/core/Avatar'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import Person from '@material-ui/icons/Person'
+import auth from './../auth/auth-helper'
 import { Link } from 'react-router-dom'
 import { list } from './api-comment'
 
