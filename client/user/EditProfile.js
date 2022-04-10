@@ -49,7 +49,6 @@ export default function EditProfile({ match }) {
     redirectToProfile: false
   })
   const jwt = auth.isAuthenticated()
-  console.log("Hello there")
 
   useEffect(() => {
     const abortController = new AbortController()
