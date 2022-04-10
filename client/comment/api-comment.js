@@ -26,7 +26,7 @@ const list = async (signal) => {
     }
 }
 
-const update = async (params, credentials, user) => {
+const update = async (params, credentials, comment) => {
     try {
         let response = await fetch('/api/comments/' + params.commentId, {
             method: 'PUT',

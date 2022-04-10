@@ -3,7 +3,7 @@ import extend from 'lodash/extend'
 import errorHandler from './../helpers/dbErrorHandler'
 
 const create = async (req, res) => {
-  const Comment = new Comment(req.body)
+  const comment = new Comment(req.body)
   try {
     await comment.save()
     return res.status(200).json({
@@ -18,7 +18,7 @@ const create = async (req, res) => {
 
 const list = async (req, res) => {
   try {
-    let comments = await comment.find().select('user comment updated created')
+    let comments = await Comment.find().select('user comment updated created')
     res.json(comments)
   } catch (err) {
     return res.status(400).json({
