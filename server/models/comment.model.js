@@ -9,7 +9,7 @@ const CommentSchema = new mongoose.Schema({
   comment: {
     type: String,
     trim: true,
-    required: 'Email is required'
+    required: 'Comment Body is required'
   }
 })
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import List from '@material-ui/core/List'
@@ -11,8 +11,8 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import ArrowForward from '@material-ui/icons/ArrowForward'
 import Person from '@material-ui/icons/Person'
-import {Link} from 'react-router-dom'
-import {list} from './../user/api-user.js'
+import { Link } from 'react-router-dom'
+import { list } from '../user/api-comment.js'
 
 const useStyles = makeStyles(theme => ({
   root: theme.mixins.gutters({
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Users() {
   const classes = useStyles()
-  const [users, setUsers] = useState([])
+  const [comments, setComments] = useState([])
 
   useEffect(() => {
     const abortController = new AbortController()
@@ -41,37 +41,37 @@ export default function Users() {
       }
     })
 
-    return function cleanup(){
+    return function cleanup() {
       abortController.abort()
     }
   }, [])
 
 
-    return (
-      <Paper className={classes.root} elevation={4}>
-        <Typography variant="h6" className={classes.title}>
-          Comments Page
-        </Typography>
-        <List dense>
-         {users.map((item, i) => {
-          return <Link to={"/user/" + item._id} key={i}>
-                    <ListItem button>
-                      <ListItemAvatar>
-                        <Avatar>
-                          <Person/>
-                        </Avatar>
-                      </ListItemAvatar>
-                      <ListItemText primary={item.name}/>
-                      <ListItemSecondaryAction>
-                      <IconButton>
-                          <ArrowForward/>
-                      </IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                 </Link>
-               })
-             }
-        </List>
-      </Paper>
-    )
+  return (
+    <Paper className={classes.root} elevation={4}>
+      <Typography variant="h6" className={classes.title}>
+        Comments Page
+      </Typography>
+      <List dense>
+        {comments.map((item, i) => {
+          return <ListItem button>
+            <ListItemAvatar>
+              <Avatar>
+                <Person />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary={item.user} />
+            <ListItemText primary={item.comment} />
+            <ListItemSecondaryAction>
+              <IconButton>
+                <ArrowForward />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
+
+        })
+        }
+      </List>
+    </Paper>
+  )
 }
