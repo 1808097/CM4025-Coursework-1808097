@@ -60,6 +60,17 @@ const requireSignin = expressJwt({
 
 const hasAuthorization = (req, res, next) => {
   
+  const authorized = req.profile && req.auth && req.profile._id == req.auth._id
+  if (!(authorized)) {
+    return res.status('403').json({
+      error: "User is not authorized"
+    })
+  }
+  next()
+}
+
+const hasCommentAuthorization = (req, res, next) => {
+  
 
   console.log("TESTING3")
   console.log(req.profile.originId)
@@ -73,7 +84,7 @@ const hasAuthorization = (req, res, next) => {
   console.log(req.originId == req.auth._id)
 
 
-  const authorized = req.profile && req.auth && req.profile._id == req.auth._id
+  const authorized = req.profile && req.auth && req.profile.originId == req.auth._id
   if (!(authorized)) {
     return res.status('403').json({
       error: "User is not authorized"
@@ -101,5 +112,6 @@ export default {
   signout,
   requireSignin,
   hasAuthorization,
+  hasCommentAuthorization,
   hasAdminAuthorization
 }
