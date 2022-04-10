@@ -10,6 +10,11 @@ const CommentSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: 'Comment Body is required'
+  },
+  updated: Date,
+  created: {
+    type: Date,
+    default: Date.now
   }
 })
 
