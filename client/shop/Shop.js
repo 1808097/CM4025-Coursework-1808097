@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Itemss() {
+export default function Items() {
   const classes = useStyles()
   const [items, setItems] = useState([])
 
@@ -62,7 +62,7 @@ export default function Itemss() {
             </ListItemAvatar>
             <ListItemText primary={itemList.name} /> 
             <ListItemText primary={itemList.price} />
-            <ListItemText primary={itemList.price} />
+            <ListItemText primary={itemList.stock} />
           </ListItem>
         })
         }
