@@ -7,7 +7,7 @@ const router = express.Router()
 router.route('/api/items')
     .get(itemCtrl.list)
 
-router.route('/api/items/admin')
+router.route('/api/items/admin/:itemId')
     .post(authCtrl.requireSignin, itemCtrl.create)
 
 router.route('/api/items/admin/:itemId')
