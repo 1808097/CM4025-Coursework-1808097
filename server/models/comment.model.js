@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const CommentSchema = new mongoose.Schema({
   originId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     trim: true,
     required: 'Id is required'
   },
