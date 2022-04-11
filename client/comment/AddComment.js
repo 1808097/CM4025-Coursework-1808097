@@ -53,10 +53,11 @@ export default function AddComment() {
     }
 
     const [values, setValues] = useState({
-        error: '',
         originId: null,
         user: '',
         comment: '',
+        error: '',
+        open: false,
     })
 
     const handleChange = name => event => {
@@ -64,6 +65,7 @@ export default function AddComment() {
     }
 
     const clickSubmit = () => {
+        console.log(auth.isAuthenticated._id)
         const comment = {
             originId: auth.isAuthenticated._id || undefined,
             user: values.email || undefined,
