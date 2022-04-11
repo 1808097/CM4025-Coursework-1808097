@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
-import AddComment from '@material-ui/icons-material/AddComment';
+import AddCommentIcon from '@material-ui/icons-material/AddComment';
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
@@ -11,8 +11,6 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import auth from './../auth/auth-helper'
 import {create} from './api-comment.js'
 import {Redirect} from 'react-router-dom'
-
-
 
 
 export default function AddComment() {
@@ -45,7 +43,7 @@ export default function AddComment() {
 
     return (<span>
       <IconButton aria-label="Add Comment" onClick={clickButton} color="secondary">
-        <AddComment/>
+        <AddCommentIcon/>
       </IconButton>
 
       <Dialog open={open} onClose={handleRequestClose}>
