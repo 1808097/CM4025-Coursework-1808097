@@ -71,7 +71,7 @@ export default function AddItem() {
             price: values.price || undefined,
             stock: values.stock || undefined
         }
-        create(comment).then((data) => {
+        create(item).then((data) => {
             if (data.error) {
                 setValues({ ...values, error: data.error })
             } else {
