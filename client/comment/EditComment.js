@@ -1,17 +1,14 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import AddCommentIcon from '@material-ui/icons/AddComment';
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import auth from './../auth/auth-helper'
 import { makeStyles } from '@material-ui/core/styles'
-import { create } from './api-comment.js'
+import { update } from './api-comment.js'
 import { Redirect } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
@@ -40,10 +37,12 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function AddComment() {
+export default function EditComment(props) {
     const [open, setOpen] = useState(false)
     const [redirect, setRedirect] = useState(false)
     const classes = useStyles()
+
+    const jwt = auth.isAuthenticated()
 
     const clickButton = () => {
         setOpen(true)
@@ -61,24 +60,28 @@ export default function AddComment() {
         open: false,
     })
 
-    const handleChange = name => event => {
-        setValues({ ...values, [name]: event.target.value })
-    }
-
     const clickSubmit = () => {
         const comment = {
             originId: auth.isAuthenticated().user._id || undefined,
             user: auth.isAuthenticated().user.name || undefined,
             comment: values.comment || undefined
         }
-        create(comment).then((data) => {
-            if (data.error) {
+        update({
+            commentId: props.commentId
+        }, {
+            t: jwt.token
+        }, comment).then((data) => {
+            if (data && data.error) {
                 setValues({ ...values, error: data.error })
             } else {
-                setValues({ ...values, error: '', open: true })
+                setValues({ ...values, commentId: data._id, open: true })
                 setRedirect(true)
             }
         })
+    }
+
+    const handleChange = name => event => {
+        setValues({ ...values, [name]: event.target.value })
     }
 
     if (redirect) {
@@ -86,12 +89,12 @@ export default function AddComment() {
     }
 
     return (<span>
-        <IconButton aria-label="Add Comment" onClick={clickButton} color="secondary">
+        <IconButton aria-label="Edit Comment" onClick={clickButton} color="secondary">
             <AddCommentIcon />
         </IconButton>
 
         <Dialog open={open} onClose={handleRequestClose}>
-            <DialogTitle>{"Write Comment"}</DialogTitle>
+            <DialogTitle>{"Edit Comment"}</DialogTitle>
             <TextField id="comment" label="Comment" className={classes.textField} value={values.comment} onChange={handleChange('comment')} margin="normal" /><br />
             <DialogActions>
                 <Button onClick={handleRequestClose} color="primary">
