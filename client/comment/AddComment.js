@@ -93,11 +93,6 @@ export default function AddComment() {
 
         <Dialog open={open} onClose={handleRequestClose}>
             <DialogTitle>{"Write Comment"}</DialogTitle>
-            <DialogContent>
-                <DialogContentText>
-                    Enter a comment.
-                </DialogContentText>
-            </DialogContent>
             <TextField id="comment" label="Comment" className={classes.textField} value={values.comment} onChange={handleChange('comment')} margin="normal" /><br />
             <DialogActions>
                 <Button onClick={handleRequestClose} color="primary">

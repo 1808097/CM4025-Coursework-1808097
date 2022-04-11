@@ -66,8 +66,7 @@ export default function AddComments() {
                 <Person />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={item.user} />
-            <ListItemText primary={item.comment} /> {
+            <ListItemText primary={item.user} /> {
               auth.isAuthenticated().user && auth.isAuthenticated().user.name == item.user &&
               (<ListItemSecondaryAction>
                 <Link to={"/comment/edit/" + item._id}>
@@ -78,8 +77,9 @@ export default function AddComments() {
                 <DeleteComment commentId={item._id} />
               </ListItemSecondaryAction>)
             }
+            <br/>
+            <ListItemText primary={item.comment} />
           </ListItem>
-
         })
         }
       </List>

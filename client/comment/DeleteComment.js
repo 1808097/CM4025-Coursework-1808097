@@ -48,7 +48,7 @@ export default function DeleteComment(props) {
         <DialogTitle>{"Delete Comment"}</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Confirm to delete the comment.
+            Confirm to delete your comment.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
