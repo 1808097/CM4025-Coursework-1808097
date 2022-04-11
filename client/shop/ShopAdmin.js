@@ -11,7 +11,7 @@ import ItemIcon from '@material-ui/icons/CardGiftcard';
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import ArrowForward from '@material-ui/icons/ArrowForward'
-import auth from './../auth/auth-helper'
+import AddItem from './AddItem'
 import { Link } from 'react-router-dom'
 import { list } from './api-item.js'
 
@@ -50,8 +50,9 @@ export default function Items() {
     return (
         <Paper className={classes.root} elevation={4}>
             <Typography variant="h6" className={classes.title}>
-                All Shop Items ADMIN
+                All Shop Items
             </Typography>
+            <AddItem />
             <List dense>
                 {items.map((itemList, i) => {
                     return <ListItem button>
@@ -61,8 +62,8 @@ export default function Items() {
                             </Avatar>
                         </ListItemAvatar>
                         <ListItemText primary={itemList.name} />
-                        <ListItemText>Price: primary={itemList.price}£</ListItemText> 
-                        <ListItemText primary={itemList.stock} />
+                        <ListItemText>Price: {itemList.price}£</ListItemText>
+                        <ListItemText>Stock: {itemList.stock}</ListItemText>
                     </ListItem>
                 })
                 }
