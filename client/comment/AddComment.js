@@ -10,6 +10,7 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import auth from './../auth/auth-helper'
+import mongoose from 'mongoose'
 import { makeStyles } from '@material-ui/core/styles'
 import { create } from './api-comment.js'
 import { Redirect } from 'react-router-dom'
@@ -53,7 +54,7 @@ export default function AddComment() {
     }
 
     const [values, setValues] = useState({
-        originId: null,
+        originId: new mongoose.Schema.Types.ObjectId(),
         user: '',
         comment: '',
         error: '',
@@ -105,7 +106,3 @@ export default function AddComment() {
     </span>)
 
 }
-AddComment.propTypes = {
-    commentId: PropTypes.string.isRequired
-}
-
