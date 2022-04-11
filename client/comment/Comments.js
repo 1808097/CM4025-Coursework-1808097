@@ -56,7 +56,7 @@ export default function AddComments() {
         Comments Page
       </Typography>
       <ListItemText primary={item.comment} /> {
-        auth.isAuthenticated().user && auth.isAuthenticated().user.name == item.user &&
+        auth.isAuthenticated() &&
         <AddComment />
       }
       <List dense>
