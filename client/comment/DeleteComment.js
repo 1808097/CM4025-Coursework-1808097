@@ -27,7 +27,7 @@ export default function DeleteComment(props) {
       if (data && data.error) {
         console.log(data.error)
       } else {
-        auth.clearJWT(() => console.log('deleted'))
+        console.log('deleted')
         setRedirect(true)
       }
     })
@@ -37,7 +37,7 @@ export default function DeleteComment(props) {
   }
 
   if (redirect) {
-    return <Redirect to='/'/>
+    return <Redirect to='/comments'/>
   }
     return (<span>
       <IconButton aria-label="Delete" onClick={clickButton} color="secondary">

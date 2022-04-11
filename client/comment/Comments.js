@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography'
 import Person from '@material-ui/icons/Person'
 import Edit from '@material-ui/icons/Edit'
 import DeleteComment from './DeleteComment'
+import AddComment from './AddComment'
 import auth from './../auth/auth-helper'
 import { Link } from 'react-router-dom'
 import { list } from './api-comment'
@@ -27,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Comments() {
+export default function AddComments() {
   const classes = useStyles()
   const [comments, setComments] = useState([])
 
@@ -54,6 +55,7 @@ export default function Comments() {
       <Typography variant="h6" className={classes.title}>
         Comments Page
       </Typography>
+      <AddComment/>
       <List dense>
         {comments.map((item, i) => {
           return <ListItem button>
