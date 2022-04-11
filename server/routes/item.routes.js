@@ -12,6 +12,6 @@ router.route('/api/items/:itemId')
     .put(authCtrl.requireSignin, authCtrl.hasAdminAuthorization, itemCtrl.update)
     .delete(authCtrl.requireSignin, authCtrl.hasAdminAuthorization, itemCtrl.remove)
 
-router.param('itemId', itemCtrl.commentByID)
+router.param('itemId', itemCtrl.itemByID)
 
 export default router
