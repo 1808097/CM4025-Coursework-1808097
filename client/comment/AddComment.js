@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
 import AddCommentIcon from '@material-ui/icons/AddComment';
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
@@ -86,7 +87,7 @@ export default function AddComment() {
             <DialogTitle>{"Write Comment"}</DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                    Confirm to delete the comment.
+                    Enter a comment.
                 </DialogContentText>
             </DialogContent>
             <TextField id="comment" label="Comment" className={classes.textField} value={values.comment} onChange={handleChange('comment')} margin="normal" /><br />
