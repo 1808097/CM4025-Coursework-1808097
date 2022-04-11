@@ -50,8 +50,8 @@ export default function Items() {
   return (
     <Paper className={classes.root} elevation={4}>
       <Typography variant="h6" className={classes.title}>
-        Comments Page
-      </Typography> 
+        All Shop Items
+      </Typography>
       <List dense>
         {items.map((itemList, i) => {
           return <ListItem button>
@@ -60,13 +60,13 @@ export default function Items() {
                 <ItemIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={itemList.name} /> 
+            <ListItemText primary={itemList.name} />
             <ListItemText primary={itemList.price} />
             <ListItemText primary={itemList.stock} />
           </ListItem>
         })
         }
       </List>
-    </Paper>
+    </Paper >
   )
 }
