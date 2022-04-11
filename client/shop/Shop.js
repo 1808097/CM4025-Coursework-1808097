@@ -11,7 +11,7 @@ import ItemIcon from '@material-ui/icons/CardGiftcard';
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import ArrowForward from '@material-ui/icons/ArrowForward'
-import Person from '@material-ui/icons/Person'
+import auth from './../auth/auth-helper'
 import { Link } from 'react-router-dom'
 import { list } from './api-item.js'
 
@@ -47,6 +47,10 @@ export default function Items() {
     }
   }, [])
 
+console.log(auth.isAuthenticated())
+console.log(auth.isAuthenticated().user)
+console.log(auth.isAuthenticated().user.admin)
+
   return (
     <Paper className={classes.root} elevation={4}>
       <Typography variant="h6" className={classes.title}>
@@ -60,9 +64,13 @@ export default function Items() {
                 <ItemIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={itemList.name} />
-            <ListItemText primary={itemList.price} />
-            <ListItemText primary={itemList.stock} />
+            <ListItemText primary={itemList.name} /> {
+              auth.isAuthenticated().user &&
+              (<ListItemSecondaryAction>
+                <ListItemText primary={itemList.price} />
+                <ListItemText primary={itemList.stock} />
+              </ListItemSecondaryAction>)
+            }
           </ListItem>
         })
         }
