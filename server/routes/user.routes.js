@@ -9,7 +9,7 @@ router.route('/api/users/admin/:userId')
 
 router.route('/api/users')
   .get(userCtrl.list)
-  .post(userCtrl.create)
+  .post(authCtrl.hasAdminAuthorization, userCtrl.create)
 
 router.route('/api/users/:userId')
   .get(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.read)
@@ -17,7 +17,5 @@ router.route('/api/users/:userId')
   .delete(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.remove)
 
 router.param('userId', userCtrl.userByID)
-
-
 
 export default router
