@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
-import AddCommentIcon from '@material-ui/icons-material/AddComment';
+import AddCommentIcon from '@material-ui/icons/AddComment';
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
