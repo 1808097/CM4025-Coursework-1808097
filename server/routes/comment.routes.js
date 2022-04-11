@@ -6,9 +6,9 @@ const router = express.Router()
 
 router.route('/api/comments')
     .get(commentCtrl.list)
+    .post(authCtrl.requireSignin, commentCtrl.create)
 
 router.route('/api/comments/:commentId')
-    .post(authCtrl.requireSignin, authCtrl.hasCommentAuthorization, commentCtrl.create)
     .put(authCtrl.requireSignin, authCtrl.hasCommentAuthorization, commentCtrl.update)
     .delete(authCtrl.requireSignin, authCtrl.hasCommentAuthorization, commentCtrl.remove)
 
