@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography'
 import Person from '@material-ui/icons/Person'
 import Edit from '@material-ui/icons/Edit'
 import DeleteComment from './DeleteComment'
-import AddCommentIcon from './AddComment'
+import AddComment from './AddComment'
 import auth from './../auth/auth-helper'
 import { Link } from 'react-router-dom'
 import { list } from './api-comment'
@@ -55,7 +55,7 @@ export default function AddComments() {
       <Typography variant="h6" className={classes.title}>
         Comments Page
       </Typography>
-      <AddCommentIcon/>
+      <AddComment/>
       <List dense>
         {comments.map((item, i) => {
           return <ListItem button>

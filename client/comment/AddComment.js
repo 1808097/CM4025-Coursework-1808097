@@ -58,7 +58,7 @@ export default function AddComment() {
           <Button onClick={handleRequestClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={clickSubmit} color="primary" autoFocus="autoFocus" variant="contained" className={classes.submit}>
+          <Button onClick={clickSubmit} color="primary" autoFocus="autoFocus" variant="contained">
             Submit
           </Button>
         </DialogActions>
