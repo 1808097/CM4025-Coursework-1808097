@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import List from '@material-ui/core/List'
@@ -7,12 +7,13 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import ListItemText from '@material-ui/core/ListItemText'
 import Avatar from '@material-ui/core/Avatar'
+import ItemIcon from '@material-ui/icons/CardGiftcard';
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import ArrowForward from '@material-ui/icons/ArrowForward'
 import Person from '@material-ui/icons/Person'
-import {Link} from 'react-router-dom'
-import {list} from './../user/api-user.js'
+import { Link } from 'react-router-dom'
+import { list } from './api-item.js'
 
 const useStyles = makeStyles(theme => ({
   root: theme.mixins.gutters({
@@ -25,9 +26,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Users() {
+export default function Itemss() {
   const classes = useStyles()
-  const [users, setUsers] = useState([])
+  const [items, setItems] = useState([])
 
   useEffect(() => {
     const abortController = new AbortController()
@@ -37,41 +38,35 @@ export default function Users() {
       if (data && data.error) {
         console.log(data.error)
       } else {
-        setUsers(data)
+        setItems(data)
       }
     })
 
-    return function cleanup(){
+    return function cleanup() {
       abortController.abort()
     }
   }, [])
 
-
-    return (
-      <Paper className={classes.root} elevation={4}>
-        <Typography variant="h6" className={classes.title}>
-          Shop
-        </Typography>
-        <List dense>
-         {users.map((item, i) => {
-          return <Link to={"/user/" + item._id} key={i}>
-                    <ListItem button>
-                      <ListItemAvatar>
-                        <Avatar>
-                          <Person/>
-                        </Avatar>
-                      </ListItemAvatar>
-                      <ListItemText primary={item.name}/>
-                      <ListItemSecondaryAction>
-                      <IconButton>
-                          <ArrowForward/>
-                      </IconButton>
-                      </ListItemSecondaryAction>
-                    </ListItem>
-                 </Link>
-               })
-             }
-        </List>
-      </Paper>
-    )
+  return (
+    <Paper className={classes.root} elevation={4}>
+      <Typography variant="h6" className={classes.title}>
+        Comments Page
+      </Typography> 
+      <List dense>
+        {items.map((itemList, i) => {
+          return <ListItem button>
+            <ListItemAvatar>
+              <Avatar>
+                <ItemIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary={itemList.name} /> 
+            <ListItemText primary={itemList.price} />
+            <ListItemText primary={itemList.price} />
+          </ListItem>
+        })
+        }
+      </List>
+    </Paper>
+  )
 }
