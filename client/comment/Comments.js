@@ -54,8 +54,7 @@ export default function AddComments() {
     <Paper className={classes.root} elevation={4}>
       <Typography variant="h6" className={classes.title}>
         Comments Page
-      </Typography>
-      <ListItemText primary={item.comment} /> {
+      </Typography> {
         auth.isAuthenticated() &&
         <AddComment />
       }
