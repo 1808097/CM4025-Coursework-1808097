@@ -43,7 +43,7 @@ export default function AddComment() {
     const classes = useStyles()
     const [values, setValues] = useState({
       error: '',
-      originId: new ObjectID(),
+      originId: null,
       user: '',
       comment: '',
     })
