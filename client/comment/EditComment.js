@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
-import AddCommentIcon from '@material-ui/icons/AddComment';
+import Edit from '@material-ui/icons/Edit'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogTitle from '@material-ui/core/DialogTitle'
@@ -90,7 +90,7 @@ export default function EditComment(props) {
 
     return (<span>
         <IconButton aria-label="Edit Comment" onClick={clickButton} color="secondary">
-            <AddCommentIcon />
+            <Edit />
         </IconButton>
 
         <Dialog open={open} onClose={handleRequestClose}>
