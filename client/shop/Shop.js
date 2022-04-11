@@ -47,10 +47,6 @@ export default function Items() {
     }
   }, [])
 
-console.log(auth.isAuthenticated())
-console.log(auth.isAuthenticated().user)
-console.log(auth.isAuthenticated().user.admin)
-
   return (
     <Paper className={classes.root} elevation={4}>
       <Typography variant="h6" className={classes.title}>
@@ -64,13 +60,8 @@ console.log(auth.isAuthenticated().user.admin)
                 <ItemIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={itemList.name} /> {
-              auth.isAuthenticated().user &&
-              (<ListItemSecondaryAction>
-                <ListItemText primary={itemList.price} />
-                <ListItemText primary={itemList.stock} />
-              </ListItemSecondaryAction>)
-            }
+            <ListItemText primary={itemList.name} />
+            <ListItemText primary={itemList.price} />
           </ListItem>
         })
         }
