@@ -55,7 +55,10 @@ export default function AddComments() {
       <Typography variant="h6" className={classes.title}>
         Comments Page
       </Typography>
-      <AddComment/>
+      <ListItemText primary={item.comment} /> {
+        auth.isAuthenticated().user && auth.isAuthenticated().user.name == item.user &&
+        <AddComment />
+      }
       <List dense>
         {comments.map((item, i) => {
           return <ListItem button>
@@ -66,14 +69,14 @@ export default function AddComments() {
             </ListItemAvatar>
             <ListItemText primary={item.user} />
             <ListItemText primary={item.comment} /> {
-             auth.isAuthenticated().user && auth.isAuthenticated().user.name == item.user &&
+              auth.isAuthenticated().user && auth.isAuthenticated().user.name == item.user &&
               (<ListItemSecondaryAction>
                 <Link to={"/comment/edit/" + item._id}>
                   <IconButton aria-label="Edit" color="primary">
-                    <Edit/>
+                    <Edit />
                   </IconButton>
                 </Link>
-                <DeleteComment commentId={item._id}/>
+                <DeleteComment commentId={item._id} />
               </ListItemSecondaryAction>)
             }
           </ListItem>

@@ -65,11 +65,8 @@ export default function AddComment() {
     }
 
     const clickSubmit = () => {
-        console.log(auth)
-        console.log(auth.isAuthenticated())
-        console.log(auth.isAuthenticated().user)
         const comment = {
-            originId: auth.isAuthenticated() || undefined,
+            originId: auth.isAuthenticated().user._id || undefined,
             user: values.email || undefined,
             comment: values.comment || undefined
         }
