@@ -7,7 +7,7 @@ const create = async (req, res) => {
   try {
     await item.save()
     return res.status(200).json({
-      message: "Successfully signed up!"
+      message: "Item added!"
     })
   } catch (err) {
     return res.status(400).json({
