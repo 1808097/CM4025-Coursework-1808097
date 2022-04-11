@@ -42,6 +42,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function AddComment() {
     const [open, setOpen] = useState(false)
+    const [redirect, setRedirect] = useState(false)
     const classes = useStyles()
 
     const clickButton = () => {
@@ -76,8 +77,13 @@ export default function AddComment() {
                 setValues({ ...values, error: data.error })
             } else {
                 setValues({ ...values, error: '', open: true })
+                setRedirect(true)
             }
         })
+    }
+
+    if (redirect) {
+        return <Redirect to='/' />
     }
 
     return (<span>
