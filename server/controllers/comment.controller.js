@@ -46,10 +46,13 @@ const commentByID = async (req, res, next, id) => {
 
 const update = async (req, res) => {
   try {
+    console.log(req.profile)
+    console.log(req.body)
+
     let comment = req.profile
     comment = extend(comment, req.body)
     comment.updated = Date.now()
-    comment.comment = "Testing"
+    comment.comment = req.comment
     await comment.save()
     res.json(comment)
   } catch (err) {
