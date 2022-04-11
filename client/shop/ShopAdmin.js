@@ -61,7 +61,7 @@ export default function Items() {
                             </Avatar>
                         </ListItemAvatar>
                         <ListItemText primary={itemList.name} />
-                        <ListItemText primary={itemList.price} />
+                        <ListItemText>Price: primary={itemList.price}£</ListItemText> 
                         <ListItemText primary={itemList.stock} />
                     </ListItem>
                 })
