@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.route('/api/comments')
     .get(commentCtrl.list)
-    .post(authCtrl.requireSignin, commentCtrl.create)
+    .post(commentCtrl.create)
 
 router.route('/api/comments/:commentId')
     .put(authCtrl.requireSignin, authCtrl.hasCommentAuthorization, commentCtrl.update)
