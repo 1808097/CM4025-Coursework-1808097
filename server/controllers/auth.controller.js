@@ -70,19 +70,6 @@ const hasAuthorization = (req, res, next) => {
 }
 
 const hasCommentAuthorization = (req, res, next) => {
-  
-
-  console.log("TESTING3")
-  console.log(req.profile.originId)
-  console.log("TESTING4")
-  console.log(req.auth._id.toString())
-  console.log("TESTING5")
-  console.log(req.profile._id)
-  console.log("TESTING6")
-  console.log(req.auth._id)
-  console.log(req.originId == req.auth._id.toString())
-  console.log(req.originId == req.auth._id)
-
 
   const authorized = req.profile && req.auth && req.profile.originId == req.auth._id
   if (!(authorized)) {

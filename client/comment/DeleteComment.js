@@ -37,7 +37,7 @@ export default function DeleteComment(props) {
   }
 
   if (redirect) {
-    return <Redirect to='/comments'/>
+    return <Redirect to='/'/>
   }
     return (<span>
       <IconButton aria-label="Delete" onClick={clickButton} color="secondary">
