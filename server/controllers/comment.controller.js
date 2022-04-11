@@ -52,7 +52,6 @@ const update = async (req, res) => {
     let comment = req.profile
     comment = extend(comment, req.body)
     comment.updated = Date.now()
-    comment.comment = req.comment
     await comment.save()
     res.json(comment)
   } catch (err) {
