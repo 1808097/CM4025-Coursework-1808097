@@ -8,11 +8,11 @@ router.route('/api/items')
     .get(itemCtrl.list)
 
 router.route('/api/items/admin')
-    .post(authCtrl.hasAdminAuthorization, itemCtrl.create)
+    .post(authCtrl.hasItemAuthorization, itemCtrl.create)
 
 router.route('/api/items/admin/:itemId')
-    .put(authCtrl.requireSignin, authCtrl.hasAdminAuthorization, itemCtrl.update)
-    .delete(authCtrl.requireSignin, authCtrl.hasAdminAuthorization, itemCtrl.remove)
+    .put(authCtrl.requireSignin, authCtrl.hasItemAuthorization, itemCtrl.update)
+    .delete(authCtrl.requireSignin, authCtrl.hasItemAuthorization, itemCtrl.remove)
 
 router.param('itemId', itemCtrl.itemByID)
 
