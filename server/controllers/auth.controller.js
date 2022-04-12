@@ -115,8 +115,6 @@ const hasItemAuthorization = (req, res, next) => {
   next()
 }
 
-
-
 export default {
   signin,
   signout,

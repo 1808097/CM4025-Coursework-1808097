@@ -64,6 +64,10 @@ export default function Items() {
                         <ListItemText primary={itemList.name} />
                         <ListItemText>Price: {itemList.price}£</ListItemText>
                         <ListItemText>Stock: {itemList.stock}</ListItemText>
+                        <ListItemSecondaryAction>
+                            <EditItem itemId={itemList._id} />
+                            <DeleteItem itemId={itemList._id} />
+                        </ListItemSecondaryAction>)
                     </ListItem>
                 })
                 }
