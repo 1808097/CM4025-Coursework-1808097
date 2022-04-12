@@ -1,7 +1,7 @@
 const create = async (item) => {
   try {
     console.log(item)
-    let response = await fetch('/api/items/admin' + item._id, {
+    let response = await fetch('/api/items/admin/', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
