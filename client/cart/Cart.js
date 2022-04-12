@@ -61,8 +61,6 @@ export default function Carts() {
               <ItemIcon />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={cart.items} />
-          <ListItemTextPrice primary={cart.originId} />
           <ListItemSecondaryAction>
             <IconButton>
               <AddIcon />
@@ -77,3 +75,6 @@ export default function Carts() {
     </Paper >
   )
 }
+
+//<ListItemText primary={cart.items} />
+//<ListItemTextPrice primary={cart.originId} />
