@@ -63,18 +63,19 @@ export default function Items() {
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary={itemList.name} />
-            <ListItemText>Price: {itemList.price}£</ListItemText>{
-              auth.isAuthenticated().user &&
-              <ListItemSecondaryAction>
-                <IconButton>
-                  <AddIcon />
-                </IconButton>
-                <ListItemText >0</ListItemText>
-                <IconButton>
-                  <RemoveIcon />
-                </IconButton>
-              </ListItemSecondaryAction>
-            }
+            <ListItemText>Price: {itemList.price}£</ListItemText>
+            <ListItemSecondaryAction>
+              <IconButton>
+                <AddIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+            <ListItemText >0</ListItemText>
+            <ListItemSecondaryAction>
+              <IconButton>
+                <RemoveIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+
           </ListItem>
         })
         }
