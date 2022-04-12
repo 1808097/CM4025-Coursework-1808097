@@ -5,6 +5,7 @@ import Menu from './core/Menu'
 import Comments from './comment/Comments'
 import Shop from './shop/Shop'
 import ShopAdmin from './shop/ShopAdmin'
+import Cart from './cart/Cart'
 import Users from './user/Users'
 import Signup from './user/Signup'
 import Signin from './auth/Signin'
@@ -21,6 +22,7 @@ const MainRouter = () => {
         <Route path="/users" component={Users}/>
         <Route path="/comments" component={Comments}/>
         <Route path="/shop" component={Shop}/>
+        <Route path="/cart" component={Cart}/>
         <Route path="/shopadmin" component={ShopAdmin}/>
         <Route path="/signup" component={Signup}/>
         <Route path="/signin" component={Signin}/>

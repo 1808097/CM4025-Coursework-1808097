@@ -13,9 +13,9 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import Typography from '@material-ui/core/Typography'
 import ArrowForward from '@material-ui/icons/ArrowForward'
-import auth from './../auth/auth-helper'
+import auth from '../auth/auth-helper'
 import { Link } from 'react-router-dom'
-import { list } from './api-item.js'
+import { read } from '../shop/api-cart.js'
 
 const useStyles = makeStyles(theme => ({
   root: theme.mixins.gutters({
@@ -28,9 +28,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Items() {
+export default function Carts() {
   const classes = useStyles()
-  const [items, setItems] = useState([])
+  const [cart, setCarts] = useState([])
 
   useEffect(() => {
     const abortController = new AbortController()
@@ -40,7 +40,7 @@ export default function Items() {
       if (data && data.error) {
         console.log(data.error)
       } else {
-        setItems(data)
+        setCarts(data)
       }
     })
 
@@ -52,20 +52,19 @@ export default function Items() {
   return (
     <Paper className={classes.root} elevation={4}>
       <Typography variant="h6" className={classes.title}>
-        All Shop Items
+        Cart
       </Typography>
       <List dense>
-        {items.map((itemList, i) => {
+        {cart.items((item, i) => {
           return <ListItem button>
             <ListItemAvatar>
               <Avatar>
                 <ItemIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={itemList.name} />
-            <ListItemText>Price: {itemList.price}£</ListItemText>{
-              auth.isAuthenticated().user && auth.isAuthenticated().user.name == item.user &&
-              <ListItemSecondaryAction>
+            <ListItemText primary={item.name} />
+            <ListItemTextPrice primary={item.price} />
+            <ListItemSecondaryAction>
                 <IconButton>
                   <AddIcon />
                 </IconButton>
@@ -74,7 +73,6 @@ export default function Items() {
                   <RemoveIcon />
                 </IconButton>
               </ListItemSecondaryAction>
-            }
           </ListItem>
         })
         }

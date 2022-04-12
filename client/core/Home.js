@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <Card className={classes.card}>
       <Typography variant="h6" className={classes.title}>
-        Love-for-the-Uglies
+        Justice for Ugly Animals
       </Typography>
       <CardMedia className={classes.media} image={myImg} title="My Image" />
       <Typography variant="body2" component="p" className={classes.credit} color="textSecondary">Photo: Mixed-breed dog </Typography>
