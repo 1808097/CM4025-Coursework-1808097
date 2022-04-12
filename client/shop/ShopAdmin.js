@@ -69,7 +69,7 @@ export default function Items() {
                         <ListItemSecondaryAction>
                             <EditItem itemId={itemList._id} />
                             <DeleteItem itemId={itemList._id} />
-                        </ListItemSecondaryAction>)
+                        </ListItemSecondaryAction>
                     </ListItem>
                 })
                 }

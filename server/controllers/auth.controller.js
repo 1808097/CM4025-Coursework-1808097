@@ -98,15 +98,15 @@ const hasAdminAuthorization = (req, res, next) => {
 
 const hasItemAuthorization = (req, res, next) => {
   console.log("TESTING1")
-  console.log(req.body)
+  console.log(req.profile)
   console.log("TESTING2")
   console.log(req.auth)
   console.log("TESTING3")
-  console.log(req)
+  console.log(req.auth._id)
 
   //console.log("Checking admin authorisation: " + req.auth.name + " " + req.auth.admin)
 
-  const authorized = req.auth && req.auth.admin == true
+  const authorized = req.profile && req.auth
   if (!(authorized)) {
     return res.status('403').json({
       error: "User is not authorized for admin"
