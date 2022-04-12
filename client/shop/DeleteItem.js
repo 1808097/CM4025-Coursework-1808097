@@ -55,7 +55,7 @@ export default function DeleteItem(props) {
           <Button onClick={handleRequestClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={deleteComment} color="secondary" autoFocus="autoFocus">
+          <Button onClick={deleteItem} color="secondary" autoFocus="autoFocus">
             Confirm
           </Button>
         </DialogActions>

@@ -12,6 +12,8 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import ArrowForward from '@material-ui/icons/ArrowForward'
 import AddItem from './AddItem'
+import EditItem from './EditItem'
+import AddItem from './AddItem'
 import { Link } from 'react-router-dom'
 import { list } from './api-item.js'
 
