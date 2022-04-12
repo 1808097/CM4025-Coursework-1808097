@@ -64,7 +64,7 @@ export default function Items() {
             </ListItemAvatar>
             <ListItemText primary={itemList.name} />
             <ListItemText>Price: {itemList.price}£</ListItemText>{
-              auth.isAuthenticated().user && auth.isAuthenticated().user.name == item.user &&
+              auth.isAuthenticated().user &&
               <ListItemSecondaryAction>
                 <IconButton>
                   <AddIcon />

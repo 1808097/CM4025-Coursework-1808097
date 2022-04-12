@@ -55,7 +55,7 @@ export default function Carts() {
         Cart
       </Typography>
       <List dense>
-        return <ListItem button>
+        <ListItem button>
           <ListItemAvatar>
             <Avatar>
               <ItemIcon />
