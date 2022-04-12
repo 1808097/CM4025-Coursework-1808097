@@ -55,27 +55,24 @@ export default function Carts() {
         Cart
       </Typography>
       <List dense>
-        {cart.items((item, i) => {
-          return <ListItem button>
-            <ListItemAvatar>
-              <Avatar>
-                <ItemIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={item.name} />
-            <ListItemTextPrice primary={item.price} />
-            <ListItemSecondaryAction>
-                <IconButton>
-                  <AddIcon />
-                </IconButton>
-                <ListItemText >0</ListItemText>
-                <IconButton>
-                  <RemoveIcon />
-                </IconButton>
-              </ListItemSecondaryAction>
-          </ListItem>
-        })
-        }
+        return <ListItem button>
+          <ListItemAvatar>
+            <Avatar>
+              <ItemIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary={cart.items} />
+          <ListItemTextPrice primary={cart.originId} />
+          <ListItemSecondaryAction>
+            <IconButton>
+              <AddIcon />
+            </IconButton>
+            <ListItemText >0</ListItemText>
+            <IconButton>
+              <RemoveIcon />
+            </IconButton>
+          </ListItemSecondaryAction>
+        </ListItem>
       </List>
     </Paper >
   )
