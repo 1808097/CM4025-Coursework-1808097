@@ -30,7 +30,7 @@ const update = async (params, credentials, comment) => {
     try {
         console.log(params)
         console.log(credentials)
-        console.log(item)
+        console.log(comment)
         let response = await fetch('/api/comments/' + params.commentId, {
             method: 'PUT',
             headers: {
