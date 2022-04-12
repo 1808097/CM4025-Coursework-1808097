@@ -61,6 +61,8 @@ export default function AddItem() {
         open: false,
     })
 
+    const jwt = auth.isAuthenticated()
+
     const handleChange = name => event => {
         setValues({ ...values, [name]: event.target.value })
     }
@@ -71,7 +73,9 @@ export default function AddItem() {
             price: values.price || undefined,
             stock: values.stock || undefined
         }
-        create(item).then((data) => {
+        create({
+            t: jwt.token
+        }, item).then((data) => {
             if (data.error) {
                 setValues({ ...values, error: data.error })
             } else {
@@ -93,8 +97,8 @@ export default function AddItem() {
         <Dialog open={open} onClose={handleRequestClose}>
             <DialogTitle>{"Add Item to Shop"}</DialogTitle>
             <TextField id="name" label="Name" className={classes.textField} value={values.name} onChange={handleChange('name')} margin="normal" /><br />
-            <TextField id="price" label="Price" className={classes.textField} value={values.price} onChange={handleChange('price')} margin="normal"/><br/>
-            <TextField id="stock" label="Stock" className={classes.textField} value={values.stock} onChange={handleChange('stock')} margin="normal"/>
+            <TextField id="price" label="Price" className={classes.textField} value={values.price} onChange={handleChange('price')} margin="normal" /><br />
+            <TextField id="stock" label="Stock" className={classes.textField} value={values.stock} onChange={handleChange('stock')} margin="normal" />
             <DialogActions>
                 <Button onClick={handleRequestClose} color="primary">
                     Cancel
