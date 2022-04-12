@@ -47,6 +47,9 @@ export default function AddItem() {
 
     const jwt = auth.isAuthenticated()
 
+    const abortController = new AbortController()
+    const signal = abortController.signal
+
     const clickButton = () => {
         setOpen(true)
     }
@@ -68,10 +71,6 @@ export default function AddItem() {
     }
 
     const clickSubmit = () => {
-
-        const abortController = new AbortController()
-        const signal = abortController.signal
-
         console.log(jwt.token)
         const item = {
             name: values.name || undefined,
@@ -94,6 +93,7 @@ export default function AddItem() {
             abortController.abort()
         }
     }
+
 
     if (redirect) {
         return <Redirect to='/' />
