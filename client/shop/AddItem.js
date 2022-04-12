@@ -70,14 +70,14 @@ export default function AddItem() {
     const clickSubmit = () => {
         const abortController = new AbortController()
         const signal = abortController.signal
-    
+
         console.log(jwt.token)
         const item = {
             name: values.name || undefined,
             price: values.price || undefined,
             stock: values.stock || undefined
         }
-        create(signal, {t: jwt.token}, item).then((data) => {
+        create(signal, { t: jwt.token }, item).then((data) => {
             if (data.error) {
                 setValues({ ...values, error: data.error })
             } else {
@@ -85,8 +85,6 @@ export default function AddItem() {
                 setRedirect(true)
             }
         })
-
-        abortController.abort()
     }
 
 

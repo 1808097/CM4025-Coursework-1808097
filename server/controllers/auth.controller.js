@@ -71,6 +71,10 @@ const hasAuthorization = (req, res, next) => {
 
 const hasCommentAuthorization = (req, res, next) => {
 
+  console.log("TESTING START")
+  console.log(req)
+  console.log("TESTING END")
+
   const authorized = req.profile && req.auth && req.profile.originId == req.auth._id
   if (!(authorized)) {
     return res.status('403').json({
@@ -94,15 +98,13 @@ const hasAdminAuthorization = (req, res, next) => {
 
 const hasItemAuthorization = (req, res, next) => {
   console.log("TESTING1")
-  console.log(req.profile)
+  console.log(req.body)
   console.log("TESTING2")
   console.log(req.auth)
   console.log("TESTING3")
-  console.log(req.auth.admin)
-  console.log("TESTING4")
-  console.log(req.auth.name)
+  console.log(req)
 
-  console.log("Checking admin authorisation: " + req.auth.name + " " + req.auth.admin)
+  //console.log("Checking admin authorisation: " + req.auth.name + " " + req.auth.admin)
 
   const authorized = req.auth && req.auth.admin == true
   if (!(authorized)) {
