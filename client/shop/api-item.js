@@ -1,4 +1,4 @@
-/*const create = async (item, credentials, signal) => {
+const create = async (item, credentials, signal) => {
   try {
     let response = await fetch('/api/items/admin', {
       method: 'POST',
@@ -14,24 +14,7 @@
   } catch (err) {
     console.log(err)
   }
-}*/
-
-const create = async (item) => {
-  try {
-      let response = await fetch('/api/items/admin', {
-          method: 'POST',
-          headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(item)
-      })
-      return await response.json()
-  } catch (err) {
-      console.log(err)
-  }
 }
-
 
 const list = async (signal) => {
   try {

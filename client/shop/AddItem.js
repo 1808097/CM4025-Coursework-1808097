@@ -77,7 +77,7 @@ export default function AddItem() {
             price: values.price || undefined,
             stock: values.stock || undefined
         }
-        create( {itemId: item._id}, { t: jwt.token }, signal).then((data) => {
+        create( item, { t: jwt.token }, signal).then((data) => {
             if (data.error) {
                 setValues({ ...values, error: data.error })
             } else {
