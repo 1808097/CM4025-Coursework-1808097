@@ -15,7 +15,7 @@ import Typography from '@material-ui/core/Typography'
 import ArrowForward from '@material-ui/icons/ArrowForward'
 import auth from '../auth/auth-helper'
 import { Link } from 'react-router-dom'
-import { read } from '../shop/api-cart.js'
+import { read } from './api-cart.js'
 
 const useStyles = makeStyles(theme => ({
   root: theme.mixins.gutters({
@@ -36,7 +36,7 @@ export default function Carts() {
     const abortController = new AbortController()
     const signal = abortController.signal
 
-    list(signal).then((data) => {
+    read(signal).then((data) => {
       if (data && data.error) {
         console.log(data.error)
       } else {
