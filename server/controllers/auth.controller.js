@@ -93,13 +93,13 @@ const hasAdminAuthorization = (req, res, next) => {
 }
 
 const hasItemAuthorization = (req, res, next) => {
-  console.log(TESTING1)
+  console.log("TESTING1")
   console.log(req.auth)
-  console.log(TESTING2)
+  console.log("TESTING2")
   console.log(req.auth.admin)
-  console.log(TESTING3)
+  console.log("TESTING3")
   console.log(req.auth.name)
-  console.log(TESTING4)
+  console.log("TESTING4")
   console.log(req.profile)
 
   console.log("Checking admin authorisation: " + req.auth.name + " " + req.auth.admin)
