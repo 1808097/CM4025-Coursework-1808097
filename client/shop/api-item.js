@@ -1,6 +1,5 @@
 const create = async (item) => {
   try {
-    console.log(item)
     let response = await fetch('/api/items/admin', {
       method: 'POST',
       headers: {
@@ -29,7 +28,7 @@ const list = async (signal) => {
 
 const update = async (params, credentials, item) => {
   try {
-    let response = await fetch('/api/items/admin' + params.itemId, {
+    let response = await fetch('/api/items/admin/' + params.itemId, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',
@@ -46,7 +45,7 @@ const update = async (params, credentials, item) => {
 
 const remove = async (params, credentials) => {
   try {
-    let response = await fetch('/api/items/admin' + params.itemId, {
+    let response = await fetch('/api/items/admin/' + params.itemId, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
