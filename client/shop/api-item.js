@@ -2,6 +2,7 @@ const create = async (signal, credentials, item) => {
   try {
     console.log(credentials)
     console.log(item)
+    console.log(signal)
     let response = await fetch('/api/items/admin', {
       method: 'POST',
       signal: signal,
