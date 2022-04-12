@@ -86,7 +86,7 @@ export default function EditItem(props) {
     }
 
     if (redirect) {
-        return <Redirect to='/' />
+        return <Redirect to='/shop' />
     }
 
     return (<span>

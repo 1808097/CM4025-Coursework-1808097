@@ -9,6 +9,8 @@ import ListItemText from '@material-ui/core/ListItemText'
 import Avatar from '@material-ui/core/Avatar'
 import ItemIcon from '@material-ui/icons/CardGiftcard';
 import IconButton from '@material-ui/core/IconButton'
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 import Typography from '@material-ui/core/Typography'
 import ArrowForward from '@material-ui/icons/ArrowForward'
 import auth from './../auth/auth-helper'
@@ -62,6 +64,14 @@ export default function Items() {
             </ListItemAvatar>
             <ListItemText primary={itemList.name} />
             <ListItemText>Price: {itemList.price}£</ListItemText>
+            <ListItemSecondaryAction>
+                <IconButton>
+                  <AddIcon />
+                </IconButton>
+                <IconButton>
+                  <RemoveIcon />
+                </IconButton>
+              </ListItemSecondaryAction>
           </ListItem>
         })
         }

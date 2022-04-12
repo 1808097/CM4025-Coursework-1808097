@@ -89,7 +89,7 @@ export default function AddItem() {
 
 
     if (redirect) {
-        return <Redirect to='/' />
+        return <Redirect to='/shop' />
     }
 
     return (<span>
