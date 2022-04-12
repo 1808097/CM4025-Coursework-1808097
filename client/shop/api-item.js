@@ -1,4 +1,4 @@
-const create = async (credentials, item) => {
+const create = async (params, credentials, item) => {
   try {
     let response = await fetch('/api/items/admin', {
       method: 'POST',

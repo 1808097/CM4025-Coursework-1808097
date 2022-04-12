@@ -74,6 +74,8 @@ export default function AddItem() {
             stock: values.stock || undefined
         }
         create({
+            itemId: item.name
+        }, {
             t: jwt.token
         }, item).then((data) => {
             if (data.error) {
@@ -109,5 +111,4 @@ export default function AddItem() {
             </DialogActions>
         </Dialog>
     </span>)
-
 }
