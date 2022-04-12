@@ -40,7 +40,7 @@ const update = async (params, credentials, cart) => {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + credentials.t
             },
-            body: JSON.stringify(item)
+            body: JSON.stringify(cart)
         })
         return await response.json()
     } catch (err) {
