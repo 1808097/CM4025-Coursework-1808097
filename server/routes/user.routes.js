@@ -9,7 +9,7 @@ router.route('/api/users/admin/:userId')
 
 router.route('/api/users')
   .get(userCtrl.list)
-  .post(authCtrl.hasAdminAuthorization, userCtrl.create)
+  .post(userCtrl.create)
 
 router.route('/api/users/:userId')
   .get(authCtrl.requireSignin, authCtrl.hasAuthorization, userCtrl.read)
