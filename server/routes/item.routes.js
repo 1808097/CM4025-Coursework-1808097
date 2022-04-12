@@ -8,7 +8,7 @@ router.route('/api/items')
     .get(itemCtrl.list)
 
 router.route('/api/items/admin')
-    .post(authCtrl.requireSignin, authCtrl.hasAdminAuthorization, itemCtrl.create)
+    .post(authCtrl.hasAdminAuthorization, itemCtrl.create)
 
 router.route('/api/items/admin/:itemId')
     .put(authCtrl.requireSignin, authCtrl.hasAdminAuthorization, itemCtrl.update)
