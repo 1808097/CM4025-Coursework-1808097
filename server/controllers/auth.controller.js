@@ -92,6 +92,18 @@ const hasAdminAuthorization = (req, res, next) => {
   next()
 }
 
+const hasItemAuthorization = (req, res, next) => {
+  console.log("Checking admin authorisation: " + req.auth.name + " " + req.auth.admin)
+
+  const authorized = req.auth && req.profile.admin == true
+  if (!(authorized)) {
+    return res.status('403').json({
+      error: "User is not authorized for admin"
+    })
+  }
+  next()
+}
+
 
 
 export default {
@@ -100,5 +112,6 @@ export default {
   requireSignin,
   hasAuthorization,
   hasCommentAuthorization,
-  hasAdminAuthorization
+  hasAdminAuthorization,
+  hasItemAuthorization
 }

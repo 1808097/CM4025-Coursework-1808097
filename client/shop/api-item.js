@@ -1,5 +1,8 @@
 const create = async (params, credentials, item) => {
   try {
+    console.log(params)
+    console.log(credentials)
+    console.log(item)
     let response = await fetch('/api/items/admin', {
       method: 'POST',
       headers: {
