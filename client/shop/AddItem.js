@@ -89,7 +89,6 @@ export default function AddItem() {
                 setRedirect(true)
             }
         })
-        abortController.abort()
     }
 
 
