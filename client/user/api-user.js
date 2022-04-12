@@ -5,7 +5,6 @@ const create = async (user) => {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + credentials.t
       },
       body: JSON.stringify(user)
     })
