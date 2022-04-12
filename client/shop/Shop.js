@@ -69,7 +69,7 @@ export default function Items() {
                 <AddIcon />
               </IconButton>
             </ListItemSecondaryAction>
-            <ListItemText >0</ListItemText>
+            <ListItemText ></ListItemText>
             <ListItemSecondaryAction>
               <IconButton>
                 <RemoveIcon />
