@@ -45,6 +45,8 @@ export default function AddItem() {
     const [redirect, setRedirect] = useState(false)
     const classes = useStyles()
 
+    const jwt = auth.isAuthenticated()
+
     const clickButton = () => {
         setOpen(true)
     }
@@ -61,13 +63,12 @@ export default function AddItem() {
         open: false,
     })
 
-    const jwt = auth.isAuthenticated()
-
     const handleChange = name => event => {
         setValues({ ...values, [name]: event.target.value })
     }
 
     const clickSubmit = () => {
+        console.log(jwt.token)
         const item = {
             name: values.name || undefined,
             price: values.price || undefined,

@@ -61,6 +61,7 @@ export default function EditComment(props) {
     })
 
     const clickSubmit = () => {
+        console.log(jwt.token)
         const comment = {
             originId: auth.isAuthenticated().user._id || undefined,
             user: auth.isAuthenticated().user.name || undefined,
