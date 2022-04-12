@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
@@ -68,6 +68,9 @@ export default function AddItem() {
     }
 
     const clickSubmit = () => {
+        const abortController = new AbortController()
+        const signal = abortController.signal
+    
         console.log(jwt.token)
         const item = {
             name: values.name || undefined,
@@ -75,7 +78,7 @@ export default function AddItem() {
             stock: values.stock || undefined
         }
         create({
-            itemId: item.name
+            signal
         }, {
             t: jwt.token
         }, item).then((data) => {

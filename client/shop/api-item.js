@@ -1,10 +1,10 @@
-const create = async (params, credentials, item) => {
+const create = async (signal, credentials, item) => {
   try {
-    console.log(params)
     console.log(credentials)
     console.log(item)
     let response = await fetch('/api/items/admin', {
       method: 'POST',
+      signal: signal,
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
